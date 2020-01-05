@@ -5,6 +5,7 @@ const geocode = require('./geocode');
 const darksky = require('./darksky');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 const publicDir = path.join(__dirname, '../public');
 app.use(express.static(publicDir));
@@ -71,4 +72,4 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => console.log("STARTED"));
+app.listen(port, () => console.log("STARTED at " + port));
